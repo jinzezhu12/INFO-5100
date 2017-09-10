@@ -1,0 +1,48 @@
+Scenario 1
+   Hiking
+   1.1.  Rent A ReachNow to drive to mountain rainier on weekends with friends
+          1.1.1. Download ReachNow mobile app to your device
+                 1.1.1.1.  Search "ReachNow" on Google Play store / Apple Store 
+                 1.1.1.2.  Download & Install ReachNow 
+          1.1.2. Sign-up a new account    
+                 1.1.2.1.  provide personal info (name, phone number, email, driver license number, etc;)
+                 1.1.2.2.  wait for the registration approval from ReachNow
+                            1.1.2.2.1 If the request get approved, registration completed
+			    1.1.2.2.2 If the request get rejected, try another carShare app
+                                      (Account sign-up ends here, back to apple store / google play to download another app [1.1.1.])         
+                 1.1.2.3.  new account registration completed
+          1.1.3. Rent A ReachNow vehicle to drive to mountain rainier
+                 1.1.3.1.  Find a vehicle nearby 
+                 1.1.3.2.  reserve that vehicle
+                 1.1.3.3.  use google map to navigate you to that vehicle
+                 1.1.3.4.  set mountain rainier as destination, and go 
+   1.2. On the way, fill the gas
+          1.2.1. keep checking gas to see if its remaining gas is less than 1/4 of the whole gas tank
+                   1.2.1.1.  If yes, go to the step[1.2.1.] 
+                   1.2.1.2.  If no, back to the step[1.2.1.]
+	  1.2.2  Find a closest gas station to refill the gas tank
+          1.2.3. leave the gas station, and resume the navigation to Mountain Rainier
+	  1.2.4. loop back to the step[1.2.1.] till the current location is Mountain Rainier
+   1.3. On the way, eat at restaurant for lunch
+          1.3.1. Check every companion in the car every 15 minutes to see if they are hungry or not
+		1.3.1.1 If anyone says yes, go to the step[1.3.2.]
+                1.3.1.2 Else, back to the step[1.3.1.]
+          1.3.2. find a closest restaurant along the route, and eat there
+          1.3.3. leave the restaurant, and resume the navigation to Mountain Rainier
+          1.3.4. loop back to the step[1.3.1.] till the current location is Mountain Rainier
+   1.4. Buy the ticket to get into the park
+          1.4.1. use google map to navigate you to a nearby ticketing window 
+          1.4.2. choose the ticket type that you prefer
+		1.4.2.1. buy single pass if you only hike once  
+		1.4.2.2. buy season pass if you are going to hike on mountain rainier several times in this season
+                1.4.2.3. buy annual pass if you are die-hard fan of hiking on mountain rainier
+          1.4.3. show the purchased pass to the officer, and get in
+   1.5. Book a hotel or check in the hotel
+          1.5.1. pick a hotel booking app/website that you preferred 
+          1.5.2. book a hotel room via mobile app/website
+		1.5.2.1. set your search criteria (such as location, check-in date & check-out date, and number of guests, etc;) 
+		1.5.2.2. search the hotels based on the criterias that are selected
+			1.5.2.2.1. If you are satisify with the current search result, pick a hotel you would like to stay, and go to the step[1.5.3.]
+			1.5.2.2.2. Else reset the search criteria / add more advanced filter(such as pet allowed, mountain view, lake view, etc;), loop back to the step[1.5.2.] 
+          1.5.3. Finish your payment info, and complete the booking transaction.
+          1.5.4. check-in the hotel that you just booked 
