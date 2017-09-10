@@ -1,3 +1,6 @@
+Author: Zezhu Jin
+Class : INFO 5100
+
 Scenario 1
    Hiking
    1.1.  Rent A ReachNow to drive to mountain rainier on weekends with friends
@@ -45,4 +48,32 @@ Scenario 1
 			1.5.2.2.1. If you are satisify with the current search result, pick a hotel you would like to stay, and go to the step[1.5.3.]
 			1.5.2.2.2. Else reset the search criteria / add more advanced filter(such as pet allowed, mountain view, lake view, etc;), loop back to the step[1.5.2.] 
           1.5.3. Finish your payment info, and complete the booking transaction.
-          1.5.4. check-in the hotel that you just booked 
+          1.5.4. check-in the hotel that you just booked
+
+Scenario 2
+    Organize a career fair
+	2.1. Choose a date, time and location for the career fair 
+		2.1.1. pick a date & time which is convinient for both of students and companies
+		2.1.2. choose a location that can hold the anticipated number of attendees
+	2.2. Determine the type of career fair
+		2.1.1. if most of the students are studying in the area of information technology, then the type would be IT career fair
+		2.1.2. if most of the students are studying in the area of business, then the type would be Business career fair
+		2.1.3. else, the type would be general career fair   
+	2.3. make a list of companies that will attend this career fair
+		2.2.1. list out every company in the area may be interested 
+		2.2.2. retrieve the contact information of human resources department for each company in the list
+		2.2.3. call/email the HRs to see if they are going to attend
+			2.2.3.1. remove the companies off the list, which won't be able to attend 
+			2.2.3.2. finalize the list of attending companies 
+        2.3.  Determine the items/hardwares needed to hold this career fair 
+		2.3.1. estimate the number of tables/chairs
+		2.3.2. estimate the amount of 
+		2.3.3.
+	2.4.
+	2.5. 
+Scenario 3
+    Order Pizza from Pizza Hut   
+Scenario 4
+    Design a code sharing platform
+Scenario 5   
+    Design a softdrink/snacks vending machine
