@@ -65,12 +65,23 @@ Scenario 2
 		2.2.3. call/email the HRs to see if they are going to attend
 			2.2.3.1. remove the companies off the list, which won't be able to attend 
 			2.2.3.2. finalize the list of attending companies 
-        2.3.  Determine the items/hardwares needed to hold this career fair 
+    2.4.  Determine the items/hardwares/manpower needed to hold this career fair 
 		2.3.1. estimate the number of tables/chairs
-		2.3.2. estimate the amount of 
-		2.3.3.
-	2.4.
-	2.5. 
+		2.3.2. estimate the number of computers, monitors, paper supplies, and other office supplies
+		2.3.3. estimate the number of volunteers that can help to set up the exhibition hall for the career fair
+	2.5. Set out a marketing plan for this career fair
+		2.4.1. post various advertisement on different social media
+			2.4.1.1. Official Instagram account
+			2.4.1.2. Official Facebook account
+			2.4.1.3. Official Twitter account		
+		2.4.2. release contents(which include the finalized company list) about this career fair to various local/school media
+			2.4.2.1. post flyers at key locations in the campus
+			2.4.2.2. broadcast details about this event on campus radios
+			2.4.2.3. release video trailer for this event on the school website's homepage
+	2.6. Reviewing the steps that are listed above 
+		2.6.1. create a checklist that cover the elements listed above
+		2.6.2. go through every checkpoint in the checklist, and make sure everything is in place and is working properly
+	2.7. Let's get this career fair started!
 Scenario 3
     Order Pizza from Pizza Hut   
 Scenario 4
