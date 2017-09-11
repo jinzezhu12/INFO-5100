@@ -83,7 +83,39 @@ Scenario 2
 		2.6.2. go through every checkpoint in the checklist, and make sure everything is in place and is working properly
 	2.7. Let's get this career fair started!
 Scenario 3
-    Order Pizza from Pizza Hut   
+    Order Pizza from Pizza Hut 
+	3.1. Determine the way to order a pizza from Pizza Hut 
+		3.1.1 if call the shop directly, then go to the step[3.3.] 
+		3.1.2 if make order through Pizza Hut mobile app, then go to the step[3.2.]
+		3.1.3 if make order through Pizz Hut Website, then go the step[3.2.]
+	3.2. Order pizza through mobile app / website
+		3.2.1. open the Pizza Hut website / mobile app on your phone
+		3.2.2. if you have a pizza hut account, then login with username and password. Else go the step[3.2.3.]
+			3.2.2.1. pick a proper pizza size (small, medium, large, extra-large)
+			3.2.2.2. pick a pizza type (Chicago pizza, California pizza, New York style, Sicilian pizza, Greek pizza. etc;)
+			3.2.2.3. pick toppings that you want to add on the pizza (pepperoni, pineapple, olive, bbq chicken, etc;)
+			3.2.2.5. choose a delivery method,( store pick-up, deliver to your home)
+				3.2.2.5.1 if you choose pick-up, then ask for the shop's address and phone
+				3.2.2.5.2 if you choose deliver-to-home, then fill out your delivery address
+			3.2.2.4. provide a payment method( cash, credit-card, debit-card)
+			3.2.2.5. final review for your order. if you are not satisified, then back to the step[3.2.2.2.]. Else go the step[3.4.]
+		3.2.3. register an new Pizza Hut account
+			3.2.3.1. fill out the personal info 
+			3.2.3.2. set up the username and password
+			3.2.3.3. add a frequent-use credit card to the account
+			3.2.3.4. back to the step[3.2.2]
+	3.3. Order pizza through phone call 
+		3.2.1. find a closest pizza hut store with its address and phone number by using Google/Yelp
+		3.2.2. call the shop
+			3.2.2.1. ask for available pizza sizes, then pick a proper pizza size (small, medium, large, extra-large)
+			3.2.2.2. ask for available pizza types, then pick a pizza type (Chicago pizza, California pizza, New York style, Sicilian pizza, Greek pizza. etc;)
+			3.2.2.3. ask for available toppings, then pick toppings that you want to add on the pizza (pepperoni, pineapple, olive, bbq chicken, etc;)
+			3.2.2.4. choose a delivery method,( store pick-up, deliver to your home)
+				3.2.2.4.1. if you choose pick-up, then ask for the shop's address and phone
+				3.2.2.4.2. if you choose deliver-to-home, then give the shop your delivery address
+			3.2.2.5. provide a payment method( cash, credit-card, debit-card)
+			3.2.2.5. final review for your order.
+	3.4. Pizza Order Completed
 Scenario 4
     Design a code sharing platform
 Scenario 5   
