@@ -119,7 +119,7 @@ Scenario 3
 Scenario 4
     Design a code sharing platform
 		4.1. Requirement Analysis of the Code Sharing Platform
-			4.1.1. define the major features that need to put on this platform
+			4.1.1. define the major functions that need to put on this platform
 				4.1.1.1. code repository
 					4.1.1.1.1. provide users spaces to create their own source code repository
 					4.1.1.1.2. allow users to download/upload their code anytime anywhere across devices 
@@ -131,13 +131,16 @@ Scenario 4
 					4.1.1.2.2. ability to track/log changes 
 					4.1.1.2.3. be able to notify team members whenever any new changes are made to shared repository
 				4.1.1.3. integration options
-			4.1.2.
+					4.1.1.3.1.  
+					4.1.1.3.2.
+					4.1.1.3.3.
+			4.1.2. 
 			4.1.3.
 		4.2. Technical Specification
 			4.2.1.
 			4.2.2.
 			4.2.3.
-		4.3. Draw the Wireframe 
+		4.3. Draw the Wireframe
 		4.4. Visual Design
 		4.5. Create a prototype
 		4.6. Development
@@ -145,4 +148,16 @@ Scenario 4
 		4.5. Implementation
 Scenario 5   
     Design a softdrink/snacks vending machine
-	
+	5.1. Define major actions of the vending machine should be able to perform
+		5.1.1. define acceptable payments
+			5.1.1.1. allow coins of 1,5,10,25 cents (penny, nickel, dime, and quarter)
+			5.1.1.2. credit cards allowed (American Express, Discover, Master, Visa) 
+		5.1.2. allow user to select products by product number(Coke, Sprite, other soda drinks)
+		5.1.3. allow uers to cancel the request to get the refund
+		5.1.4. dispensing selected product 
+		5.1.5. ability to return remaining change if user choose to use cash 
+		5.1.6. ability to notify softdrinks suppliers to refill the vending machine when any type of drinks are about to sold out
+	5.2.  
+	5.3.
+	5.4.
+	5.5.	
