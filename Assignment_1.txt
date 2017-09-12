@@ -118,34 +118,56 @@ Scenario 3
 		3.4. Pizza Order Completed
 Scenario 4
     Design a code sharing platform
-		4.1. Requirement Analysis of the Code Sharing Platform
-			4.1.1. define the major functions that need to put on this platform
-				4.1.1.1. code repository
-					4.1.1.1.1. provide users spaces to create their own source code repository
-					4.1.1.1.2. allow users to download/upload their code anytime anywhere across devices 
-					4.1.1.1.3. be able to give customerts a heads-up on possible issues 
-						4.1.1.1.3.1. code changes conflicts
-						4.1.1.1.3.2. unforseen dependency issues	
-				4.1.1.2. collaborate and track changes across versions
-					4.1.1.2.1. provide useres a version history of their source code (therefore the previous code repository are not lost with every iteration) 
-					4.1.1.2.2. ability to track/log changes 
-					4.1.1.2.3. be able to notify team members whenever any new changes are made to shared repository
-				4.1.1.3. integration options
-					4.1.1.3.1.  
-					4.1.1.3.2.
-					4.1.1.3.3.
-			4.1.2. 
-			4.1.3.
-		4.2. Technical Specification
-			4.2.1.
-			4.2.2.
-			4.2.3.
-		4.3. Draw the Wireframe
-		4.4. Visual Design
-		4.5. Create a prototype
-		4.6. Development
-		4.7. Testing 
-		4.5. Implementation
+			4.1. determine the required functions of a code sharing platform
+				4.1.1. code repository
+					4.1.1.1. provide users spaces to create their own source code repository
+					4.1.1.2. allow users to download/upload their code anytime anywhere across devices 
+					4.1.1.3. be able to give users heads-up on possible issues 
+						4.1.1.3.1. code changes conflicts
+						4.1.1.3.2. unforseen dependency issues	
+				4.1.2. collaborate and track changes across versions
+					4.1.2.1. provide useres a version history of their source code (therefore the previous code repository are not lost with every iteration) 
+					4.1.2.2. ability to track/log changes 
+					4.1.2.3. be able to notify team members whenever any new changes are made to shared repository
+				4.1.3. integration options
+					4.1.3.1. integration with cloud services(Amazon web service, Google cloud, Microsoft Azure)
+					4.1.3.2. integration with code analysis tool
+						4.1.3.2.1. tracking users' code feedback
+						4.1.3.2.2. highlight syntax in over hundreds of programming languages
+			4.2. Technical Sepcifications
+				4.2.1. decide the delivery platform (web, mobile, desktop)
+					4.2.1.1. if web version only, pick a framework that is good for web development (ASP.NET, PHP, etc;)
+					4.2.1.2. if desktop version only, pick a framework that is good for desktop app development (QT, JavaFX/Swing, etc;)
+					4.2.1.3. if mobile version only, pick a framework that is good for mobile app development ( Intel XDK, Sencha Touch, etc;)
+					4.2.1.4. if this platform going to be crossover-type, pick a framework that is good for cross-platform development (PhoneGap)
+				4.2.2. choose the programming languages (Java, PHP, JS, Python, etc;) that can suit for the framework you picked
+				4.2.3. choose a data warehouse (either local data server or cloud data server) to store all of the datas produced from this code sharing platform 
+			4.3. Prototype Creation
+				4.3.1. draw a cenceptual interface for where the code repository & major features will be display on the website/application 
+					4.3.1.1. determine the background color and where the control pannel locate 
+					4.3.1.2. choose colors, textures and fonts for the code repository, clickable buttons, icons and etc;
+					4.3.1.3. alignment and positioning for every items in the website/application
+				4.3.2. draw various flowcharts that can show how features and contents should connect and interact
+					Examples:
+					 4.3.2.1. prevent users from committing changes to master branch before you merge team members' latest changes
+					 4.3.2.2. only enable majority of features after sign-up a github account
+					 4.3.2.3. allow users to add plug-in tools by downloading them in its Maretplace
+				4.3.3. write scripts for user experience
+					4.3.3.1. describe the environment in which the user experience takes place
+					4.3.3.2. determine the mood of user experience ( geek-style, home-like, beginner-welcome, explorers)
+					4.3.3.3. determine what effects its ux design should have on the users
+			4.4. Coding 
+				4.4.1. create the homepage first
+				4.4.2. all the subpages are added according to the prototype created on the step[4.3.] 
+				4.4.3. all static content page elements created in prototype should be created and tested 
+				4.4.4. develope every function that came up within the step[4.1.], and put them to the proper places
+			4.5. Testing & Review
+				4.5.1. keep testing every functions, pages in the website/application 
+					4.5.1.1. if any bug comes out, back to the step[4.4.1.]
+					4.5.1.2. else, go to the next step
+				4.5.2. make sure every feature is working properly, and every item is in the right place
+			4.6. Launch this Code Sharing platform!
+		
 Scenario 5   
     Design a softdrink/snacks vending machine
 	5.1. Define major actions of the vending machine should be able to perform
