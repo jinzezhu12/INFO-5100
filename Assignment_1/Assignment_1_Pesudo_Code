@@ -370,8 +370,133 @@ Objects:
 
 		3.4. Pizza Order Completed!
 
+
+Scenario 4
+	Design a code sharing platform
+	
+	Identify objects and behaviors:
+
+Objects:	
+	Designer
+		Data: name
+		Behaviors: design, analysis, identify, determine
+	
+	Product
+		Data: name, features, specifications, prototype
+		Behaviors: provideServices
+	
+	Feature
+		Data: name, functions
+		Behaviors: serveUsers
 		
+	Prototype
+		Data: name, flowcharts, script, interface
+		Behaviors: display
+	
+	Function
+		Data: name, description
+		Behaviors: interact			
+	
+	Specifications:
+		Data: name, description
+		Behaviors: prototype						
+		
+	Designer zezhu;
+	Product codeSharePlatform;
+	prototype codeSharePrototype;
+	Feature feature;
+	
+	4.1. determine the required functions of a code sharing platform
+		zezhu.determineFeaturesNeeded -> Collection of features {
+			codeSharePlatform.feature = Code Repository;
+			Feature feature_1 = codeSharePlatform.feature;
+			feature_1.function = zezhu.identifyFunctionWithinFeature -> name : Collection of functions{
+				function_1.description = provide users spaces to create their own source code repository;
+				function_2.description = allow users to download/upload their code anytime anywhere across devices;
+				function_3.description = be able to give users heads-up on possible issues
+			}
 			
+			codeSharePlatform.feature = Teamwork Collaboration and Tracking
+			Feature feature_2 = codeSharePlatform.feature;
+			feature_2.function = zezhu.identifyFunctionWithinFeature -> Collection of functions{
+				function_1.description = provide useres a version history of their source code (therefore the previous code repository are not lost with every iteration) 
+				function_2.description = ability to track/log changes 
+				function_3.description = be able to notify team members whenever any new changes are made to shared repository
+			}
+			
+			codeSharePlatform.feature = Integration Options
+			Feature feature_3 = codeSharePlatform.feature;
+			feature_3.function = zezhu.identifyFunctionWithinFeature -> Collection of functions{
+				function_1.description = integration with cloud services(Amazon web service, Google cloud, Microsoft Azure);
+				function_2.description = integration with code analysis tool that can track user code feedback and highlight syntax in over hundreds of programming languages;
+			}
+			
+		}
+		End;
+	
+	4.2. Technical Specifications
+		zezhu.determineSpecificationForProduct -> Collection of specifications {
+			codeSharePlatform.specification_1 = zezhu.determineDevFramework -> Collection of framework {
+				if web version only,
+					return a framework that is good for web development (ASP.NET, PHP, etc;)
+				if desktop version only,
+					return a framework that is good for desktop app development ( QT, JavaFX/Swing, etc;)
+				if mobile version only,
+					return a a framework that is good for mobile app development ( Intel XDK, Sencha Touch, etc;)
+				if cross-platform,
+					return a framework that is good for cross-platform development (PhoneGap)
+			}
+			
+			codeSharePlatform.specification_2 = zezhu.chooseAProgrammingLanguage -> Java, PHP, JS, C++, C# : Collection of Languages;
+			codeSharePlatform.specification_3 = zezhu.identifyTypeofDataCenter -> local data server / cloud data server
+		}
+		End;
+	
+	4.3. Prototyping
+	
+			codeSharePrototype.interfaces = zezhu.designInterface : collection of details {
+				examples:
+				determine the background color and where the control pannel locate;
+			    choose colors, textures and fonts for the code repository, clickable buttons, icons and etc;
+				alignment and positioning for every items in the website/application;
+			}
+			
+			codeSharePrototype.flowcharts = zezhu.drawFlowcharts : collection of details {
+				examples:
+				prevent users from committing changes to master branch before you merge team members' latest changes
+				only enable majority of features after sign-up a github account
+				allow users to add plug-in tools by downloading them in its Maretplace
+			}
+			
+			codeSharePrototype.designScripts = zezhu.writeScripts : collection of details {
+				examples:
+				describe the environment in which the user experience takes place
+				determine the mood of user experience ( geek-style, home-like, beginner-welcome, explorers)
+				determine what effects its ux design should have on the users
+			}
+			
+			return codeSharePrototype;
+			End;
+	
+	4.4. Coding 
+		4.4.1. create the homepage first
+		4.4.2. all the subpages are added according to the prototype created on the step[4.3.] 
+		4.4.3. all static content page elements created in prototype should be created and tested 
+		4.4.4. develope every function that came up within the step[4.1.], and put them to the proper places
+	4.5. Testing & Review
+		4.5.1. keep testing every functions, pages in the website/application 
+			4.5.1.1. if any bug comes out, back to the step[4.4.1.]
+			4.5.1.2. else, go to the next step
+		4.5.2. make sure every feature is working properly, and every item is in the right place
+	4.6. Launch this Code Sharing platform!
+	
+
+Scenario 5
+	Design a softdrink/snacks vending machine
+	
+	
+	
+	
 			
 		
 	
