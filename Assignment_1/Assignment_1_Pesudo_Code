@@ -494,6 +494,92 @@ Objects:
 Scenario 5
 	Design a softdrink/snacks vending machine
 	
+	Identify Objects and Behaviors:
+	
+Objects:
+	Consumer:
+		Data: name, creditCards, coins, paperMoneys
+		Behaviors: selectItem, selectPayment, insertCoins, useCreditCard, getItem
+	
+	VendingMachine:
+		Data: machineId, location, currentBalance, items, isOrderCompleted(bool)
+		Behaviors: dispense, acceptPayment, refund
+	
+	Item
+		Data: name, Id, price
+		Behaviors: getSold
+	
+	Coin:
+		Data: type, value
+		Behaviors: pay
+	
+	PaperMoney:
+		Data: type, value
+		Behaviors: pay
+	
+	CreditCard
+		Data: cardNumber, expirationDate, securityCode, cardHolderName, isValid(bool))
+		Behaviors: makePayment, cancel, requestRefund
+	
+	CreditCardCompany
+		Data: name, location
+		Behaviors: validate, authorize
+	
+	Consumer zezhu;
+	vendingMachine machine;
+	Coin coin;
+	PaperMoney paperMoney;
+	CreditCard myCard;
+	CreditCardCompany creditCompany;
+	Item item;	
+		
+		zezhu.selectPayment -> (coin/paperMoney) / creditCard
+		machine.currentBalance = 0;
+		item = zezhu.selectItemByID;
+		machine.isOrderCompleted = TRUE;
+		
+		Loop - While (machineIsWorking)
+		If zezhu.paymentSelected = coin/paperMoney	
+			Loop - While ( currentBalance < item.price){
+				If zezhu.insertValidCash(e.g. 1 cent, 5 cent, 10 cent, 25 cent, 1 dollar, 5 dollar)
+					currentBalance = currentBalance + validCash[x];
+				Else	
+					machine.rejectInsertedMoney;
+					continue;
+				If zezhu.cancelOrder 
+					machine.isOrderCompleted = FALSE;
+					machine.refund = machine.currentBalance;
+					zezhu.getRefund;
+					machine.currentBalance = 0;
+					break;
+			}
+			If machine.isOrderCompleted = TRUE
+				machine.dispense -> zezhu.itemSelected;
+				EXIT;
+			Else
+				Continue;
+			
+		Else If zezhu.paymentSelected = creditCard
+			myCard.isValid = false;
+				myCard.isValid = zezhu.useCreditCard -> creditCardCompany.authorize {
+					creditCardCompany.validate -> credmyCard.cardNumber,
+					creditCardCompany.validate -> myCard.expirationDate,
+					creditCardCompany.validate -> myCard.securityCode;	
+					return true/false; 
+				}
+			If myCard.isValid = true
+				machine.dispense -> zezhu.itemSelected;
+			Else
+				Continue;
+		}
+		
+				
+			
+			
+			
+				
+			
+		
 	
 	
 	
