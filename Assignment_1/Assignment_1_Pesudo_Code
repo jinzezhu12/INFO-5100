@@ -7,7 +7,7 @@ Scenario 1
 	Identify Objects and Behaviors:
 	
 Objects:
-	hiker 
+	Hiker 
 	Data: name, address, phone, email, driverLicenseNumber, creditCards
 	Behaviors: register, search, buy, cancel, drive, eat
 	
@@ -15,27 +15,27 @@ Objects:
 	Data: name, vehicles,  
 	Behaviors: rentOutCar,
 	
-	vehicle
+	Vehicle
 	Data: make, model, color, licensePlateNumber, navigation, remainingGas, currentLocation
 	Behaviors: driveTo, stop, fillOutGas
 	
-	gasStation
+	GasStation
 	Data: name, gas, location
 	Behaviors: sellGasTo
 	
-	creditCard
+	CreditCard
 	Data: cardNumber, expirationDate, securityCode, cardHolderName 
-	Behaviors: makePayment
+	Behaviors: makePayment, cancel, requestRefund
 	
-	restaurant
+	Restaurant
 	Data: name, location
 	Behaviors: sellFoodsTo
 	
-	ticketOffice
+	TicketOffice
 	Data: name, location
 	Behaviors: sellTicketsTo
 
-	hotelBookingService
+	HotelBookingService
 	Data: name, hotels
 	Behaviors: search, sort, filter, display, placeBookingOrder
 	
@@ -126,6 +126,7 @@ Sequence of invoking behaviors on objects:
 			expdia.resetSearchCriterias
 			continue;
 	
+	
 Scenario 2
 
 	Organize a career fair
@@ -134,6 +135,246 @@ Scenario 2
 	
 Objects:
 
+	Organizer:
+		Data: name, age 
+		Behaviors: organize, pickDate, pickTime, pickLocation  
+	
+	CareerFair:
+		Data: name, location, type, date, time, 
+		Behaviors: providePlatform
+	
+	Company:
+		Data: name, location, HRphone, HRemail  
+		Behaviors: willingToAttend, provideJobOpportunities, interview
+	
+	Hardware:
+		Data: quantity, type 
+		Behaviors: toBeUsedFor
+	
+	MarketingStrategy:
+		Data: name, type
+		Behaviors: increaseInfluence
+		
+	List:
+		Data: company, checkItem
+		Behaviors: display, store
+	
+	Student:
+		Data: name, major
+		Behaviors: attend, register, willingToVolunteer 
+	
+	Organize zezhu;
+	CareerFair careerFair;
+	Company company;
+	Hardware hardware;
+	MarketingStrategy marketingStrategy;
+	Student student;
+	
+	2.1. choose a data, time and location for the careerFair
+		careerFair.date = zezhu.pickDate;
+		careerFair.time = zezhu.pickTime;
+		Loop
+		careerFair.location = zezhu.pickLocation;
+		if careerFair.location.maxiumOccupation < (number of student.attendCareerFair + number of company.attendCareerFair)
+			zezhu.pickLocation;
+			continue;
+		else
+			break;
+		
+		End;
+	2.2. Determine the type of careerFair 
+		If 90 percent of the Collection of student.major is IT realted
+			careerFair.type = technologyCareerFair
+		if 90 percent of the Collection of student.major is Business related
+			careerFair.type = businessCareerFair
+		else
+			careerFair.type = generalCareerFair
+		End;
+			
+	2.3. Make a list of companies that will attend this careerFair, then send out to students
+			zezhu.listOutPotentialCompanies -> Collection of company.name, company.HREmail, company.HRphone
+			Company newCompany = new Company;
+			List companyList; 
+			numberOfAttendingCompanies = 0;
+			Loop (While no in the end of the Collection of companies)
+			zezhu.contactPotentialCompany -> newCompany;
+			if (newCompany.willingToAttend = true)
+				numberOfAttendingCompanies = numberOfAttendingCompanies + 1;
+				companyList.add -> newCompany
+			else
+				continue;
+									
+			zezhu.sendOutToStudents -> companyList;
+			End;
+	2.4. Determine the hardwares needed to hold this careerFair
+			Hardware tables = new Hardware;
+			Hardware chairs = new Hardware;
+			Hardware papperSupplies = new Hardware;
+			Student students;
+			zezhu.estimate -> tables.quantity, chairs.quantity, papperSupplies.quantity;
+			zezhu.estimate -> number of Collection of studnet
+			numberOfVolunteer = 0;
+			Loop (While No In the End of the Collection of students)
+			If student.willingToVolunteer = TRUE
+				numberOfVolunteer = numberOfVolunteer + 1;
+			else 
+				continue;
+			
+			numberOfStudentVolunteer = numberOfVolunteer;
+	2.5. Set out a marketing plan for this careerFair
+		
+		MarketingStrategy mkStrategy_1 = new MarketingStrategy;
+		MarketingStrategy mkStrategy_2 = new MarketingStrategy;
+		
+		zezhu.SocialMediaMarketing -> Collection of socialMedia,
+		example:
+		mkStrategy_1.name = OfficialFacebookAccount, mkStrategy_1.type = socialMedia 
+		
+		zezhu.localMediaRelease -> Collection of localMedia
+		example:
+		mkStrategy_2.name = campusBroadcastRaiod, mkStrategy_2.type = localMedia;
+		End;
+	2.6. Reviewing the steps that are listed above 
+		2.6.1. create a checklist that cover the elements listed above
+		2.6.2. go through every checkpoint in the checklist, and make sure everything is in place and is working properly
+			
+			
+Scenario 3
+	Order Pizza from Pizza Hut
+	
+	Identify Objects and Behaviors:
+	
+Objects:
+	
+	Customer
+		Data: name, email, address, phoneNumber, creditCard
+		Behaviors: call, choose, pay,  
+	
+	CreditCard
+		Data: cardNumber, expirationDate, securityCode, cardHolderName 
+		Behaviors: makePayment, cancel, requestRefund
+	
+	pizzaHutOnline:
+		Data: platform,  
+		Behaviors: takeOrder, cancelOrder, delieverOrder
+		
+	Pizza	
+		Data: price, size, style, topping, deliverMethod, paymentMethod
+		Behaviors: beingCooked
+	
+	PizzaHutShop:
+		Data: name, address, phoneNumber
+		Behaviors: takeOrder, makePizza, delieverOrder
+	
+	Internet
+		Data: Google, Yelp, Bing
+		Behaviors: searchForNearbyPizzaHut
+	
+	Customer zezhu;
+	CreditCard myCreditCard;
+	pizzaHutOnline PHOnline;
+	Pizza myPizza;
+	PizzaHutShop shop;
+	
+	
+	3.1. Determine the way to order a pizza from Pizza Hut
+		 zezhu.chooseAPreferredOrderMethod -> Collection of orderMethod {
+			mobileAppOrder, webOrder, callPizzaShop
+		 }
+		 if (zezhu.preferredOrderMethod = mobileAppOrder / zezhu.preferredOrderMethod = webOrder
+			go to the step[3.2.]
+		 else
+			go to the step[3.3.]
+		
+	3.2. Order pizza through mobile app / website
+		zezhu.open -> PHOnline;
+		Loop 
+		If zezhu.haveAnPHOnlineAccount
+			zezhu.loginToPHOnline;
+			myPizza.size = zezhu.pickAPizzaSize ->  small, medium, large, etc;
+			myPizza.type = zezhu.pickAPizzaType -> Chicago, California, New York, Sicilian, Greek, etc;
+			myPizza.topping = zezhu.pickToppings -> pepperoni, pineapple, greenPepper, bbq chicken, etc;
+			
+			myPizza.deliverMethod = zezhu.chooseADeliveryMethod -> deliverToHome, shopPickUp;
+			if myPizza.deliverMethod = shopPickUp
+				zezhu.askForShop -> shop.phone, shop.address;
+			if myPizza.deliverMethod = delieverOrder
+				shop.getCustomerInfo -> zezhu.phoneNumber, zezhu.address;
+			
+			//choose a preferred paymentMethod
+			myPizza.paymentMethod = zezhu.choosePaymentMethod;
+			
+			if myPizza.paymentMethod = creditCard
+				myCreditCard = zezhu.creditCard;
+				zezhu.pay -> myCreditCard.cardNumber, myCreditCard.cardHolderName, myCreditCard.expirationDate, myCreditCard.securityCode;
+			else
+				zezhu.payCashTillDeliveryManArrive;
+			
+			
+			If zezhu.orderReviewed = false
+				continue;
+			Else 
+				shop.takeOrder;
+				break;
+		Else
+			zezhu.registerAnNewAccount -> zezhu.name, zezhu.address, zezhu.phoneNumber, zezhu.email;
+			if PHOnline.askForPaymentInfo
+				myCreditCard = zezhu.creditCard;
+				zezhu.addPaymentInfo -> myCreditCard.cardNumber, myCreditCard.cardHolderName, myCreditCard.expirationDate, myCreditCard.securityCode;
+			
+			zezhu.getNewPizzaAccount;
+			continue;
+		
+		End;
+		
+		3.3. Order pizza through phone call
+			Loop
+			If Internet.isAvailable 
+				zezhu.searchInInternet -> internet, question : collection of pizzaShops
+				shop = zezhu.findClosestPizzaHutShop;
+				break;
+			Else
+				zezhu.browseInternetAfterAWhileBack;
+				continue;
+			
+			zezhu.callPizzaHutShop -> shop.phoneNumber;
+			zezhu.askForAvailableSizes;
+			myPizza.size = zezhu.pickAvailablePizzaSize ->  small, medium, large, etc;
+			zezhu.askForAvailableTypes;
+			myPizza.type = zezhu.pickAvailablePizzaType -> Chicago, California, New York, Sicilian, Greek, etc;
+			zezhu.askForAvailableTopppings;
+			myPizza.topping = zezhu.pickAvailableToppings -> pepperoni, pineapple, greenPepper, bbq chicken, etc;
+			
+			myPizza.deliverMethod = zezhu.chooseADeliveryMethod -> deliverToHome, shopPickUp;
+			if myPizza.deliverMethod = shopPickUp
+				zezhu.askForShop -> shop.phone, shop.address;
+			if myPizza.deliverMethod = delieverOrder
+				shop.getCustomerInfo -> zezhu.phoneNumber, zezhu.address;
+			
+			//choose a preferred paymentMethod
+			myPizza.paymentMethod = zezhu.choosePaymentMethod;
+			
+			if myPizza.paymentMethod = creditCard
+				myCreditCard = zezhu.creditCard;
+				zezhu.pay -> myCreditCard.cardNumber, myCreditCard.cardHolderName, myCreditCard.expirationDate, myCreditCard.securityCode;
+			else
+				zezhu.payCashTillDeliveryManArrive;;
+				
+			If zezhu.orderReviewed = false
+				continue;
+			Else 
+				shop.takeOrder;
+				break;
+			
+			End;
+
+		3.4. Pizza Order Completed!
+
+		
+			
+			
+		
+	
 		
 			
 		
