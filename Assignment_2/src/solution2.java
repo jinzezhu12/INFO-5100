@@ -112,6 +112,31 @@ public class solution2 {
 
 
     private static void drawIsoTriangle() {
-
+        Scanner reader = new Scanner(System.in);
+        System.out.println("Please enter a integer to draw a proper isosceles right angled triangle....");
+        int userInput = reader.nextInt();
+        //user input validation
+        while (userInput < 0) {
+            System.out.println("Please enter a positive integer:");
+            userInput = reader.nextInt();
+        }
+        //drawing begins here
+        for (int i = 1; i <= userInput; i++) {
+            if(i < userInput) {
+                for (int j = 1; j <= i; j++) {
+                    if (j == 1)
+                        System.out.print("*");
+                    else if (j == i)
+                        System.out.print("*");
+                    else
+                        System.out.print(" ");
+                }
+                System.out.println();
+            }
+            else
+                for (int j = 1; j <= i; j++) {
+                    System.out.print("*");
+                }
+        }
     }
 }
