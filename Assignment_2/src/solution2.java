@@ -4,26 +4,45 @@ import java.util.Scanner;
 public class solution2 {
     public static void main(String args[])
     {
-        System.out.println("***********************************");
+        System.out.println("***************************************************");
         System.out.println("Scenario #1 Salary Calculation");
-        System.out.println("***********************************");
+        System.out.println("***************************************************");
         calculateSalary();
-        System.out.println("***********************************");
+        System.out.println("***************************************************");
         System.out.println("Scenario #2 Digits Addition");
-        System.out.println("***********************************");
+        System.out.println("***************************************************");
         digitsAddition();
-        System.out.println("***********************************");
+        System.out.println("***************************************************");
         System.out.println("Scenario #3 Find Perfect Numbers");
-        System.out.println("***********************************");
+        System.out.println("***************************************************");
         printPerfectNumber();
-        System.out.println("***********************************");
+        System.out.println("***************************************************");
+        System.out.println("Scenario #4&5 Show the Total Price of a pizza order");
+        System.out.println("***************************************************");
+        // Peter starts to order pizza
+        Customer zezhu = new Customer();
+        Pizza pizza1 = new Pizza("Barbecue Chicken", 11, 2, 100);
+        pizza1.printPizzaInfo();
+        Pizza pizza2 = new Pizza("Peperonni", 9, 1, 85);
+        pizza2.printPizzaInfo();
+        Pizza pizza3 = new Pizza("Pineapple", 10.5, 3, 95);
+        pizza2.printPizzaInfo();
+        double priceList[] = {pizza1.calculatePrice(),pizza2.calculatePrice(),pizza3.calculatePrice()};
+        zezhu.totalPrice = getBillForCustomer(priceList);
+        System.out.println(String.format("As a customer, you should pay $%.2f for this order.", zezhu.totalPrice));
+        System.out.println("***************************************************");
         System.out.println("Bonus Scenario - Drawing Triangle");
-        System.out.println("***********************************");
+        System.out.println("***************************************************");
         drawIsoTriangle();
 
-        Pizza pizza = new Pizza(15, "meat");
-        //System.out.println(pizza);
-        pizza.print();
+    }
+
+    private static double getBillForCustomer(double priceList[]) {
+            double sum = 0;
+            for(int counter=0; counter<priceList.length;counter++){
+                sum += priceList[counter];
+            }
+            return sum;
     }
 
     private static void calculateSalary() {
