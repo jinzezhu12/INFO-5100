@@ -1,0 +1,25 @@
+Problem #1
+
+Those bullet points below are the errors within the code:
+    * the super() function in Book(int size, ....) can be only called when the class of 'Book' is extended from a parent class
+    * there is a conflict between the 'Book(int size)' and 'Book(int price)', because only one Book(int) constructor can be existed in this book class
+    * return type is required for the function 'setName(String name)'
+    * in most cases, setVariable function should written like the following:
+            public void setName(String name){
+                this.name = name;
+            }
+    * For the security in most cases, all of those variables need to be switched to private so they only can be accessed from inside the same class
+
+
+ Problem #2
+
+ Those bullet points below are the errors within the code:
+    * getTime() cannot return a value from a method with a void return result type. The correct function should be written like the code shown below:
+        public String getTime(){
+             return this.time;
+        }
+    * instead of write the code "time = t;" in setTime(), we should do:
+        void setTime(String t){
+            this.time = t;
+        }
+     *  * For the security in most cases, variable 'time' need to be switched to private so it only can be accessed from inside the same class
