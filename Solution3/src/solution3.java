@@ -93,7 +93,7 @@ public class solution3 {
                     F_I_Conversion(); // convert between Feet and Inches
                     break;
                 case 10:
-                    getRootsForQuadraticEquation();
+                    getRootsForQuadraticEquation(); // retrieve the roots from a quadratic equation
                 default:
                     System.out.println("Please enter a valid option (0 ~ 10).....");
             }
