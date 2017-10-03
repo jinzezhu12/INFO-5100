@@ -1,3 +1,7 @@
+package Question_2;
+
+import Question_2.Tool;
+
 public class Rock extends Tool {
 
     //constructor to set strength for Rock

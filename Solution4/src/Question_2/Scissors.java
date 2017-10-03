@@ -1,3 +1,5 @@
+package Question_2;
+
 public class Scissors extends Tool {
 
     //constructor to set strength for Scissors

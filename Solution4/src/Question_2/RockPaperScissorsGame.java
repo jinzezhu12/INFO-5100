@@ -1,3 +1,9 @@
+package Question_2;
+
+import Question_2.Paper;
+import Question_2.Rock;
+import Question_2.Scissors;
+
 public class RockPaperScissorsGame {
 
     public static void main(){

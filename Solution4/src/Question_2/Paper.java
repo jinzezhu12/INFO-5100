@@ -1,3 +1,7 @@
+package Question_2;
+
+import Question_2.Tool;
+
 public class Paper extends Tool {
 
     //constructor to set strength for Paper

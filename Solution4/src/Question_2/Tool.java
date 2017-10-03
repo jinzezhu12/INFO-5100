@@ -1,3 +1,5 @@
+package Question_2;
+
 public class Tool {
 
     protected int strength;
