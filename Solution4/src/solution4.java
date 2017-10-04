@@ -3,6 +3,7 @@ import Question_3.IpAddress;
 import Question_4.Course;
 import Question_4.Student;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class solution4 {
@@ -77,11 +78,28 @@ public class solution4 {
                     break;
                 case 6:
                     // Find Median Sorted Arrays
+                    int[] a1 = {1, 3, 99, 100, 101};
+                    int[] a2 = {-2, 4, 110, 30, 45};
+                    System.out.println("The output median from these two arrays is ----> " + findMedianSortedArrays(a1, a2));
                     break;
                 default:
                     System.out.println("Please enter a valid option ( 0 - 6 )..........");
             }
         }
+    }
+
+    private static double findMedianSortedArrays(int[] a1, int[] a2) {
+        double median; //initialize the median
+        int[] combinedArray = new int[a1.length + a2.length];
+        System.arraycopy(a1, 0, combinedArray, 0, a1.length);
+        System.arraycopy(a2, 0, combinedArray,  a1.length, a2.length);
+        Arrays.sort(combinedArray);
+        if(combinedArray.length %2 == 0)
+            median = ((double)combinedArray[combinedArray.length/2] + (double)combinedArray[combinedArray.length/2 - 1])/2;
+        else
+            median = (double)combinedArray[(combinedArray.length - 1)/2];
+
+        return median;
     }
 
     private static String intToRoman(int num) {
