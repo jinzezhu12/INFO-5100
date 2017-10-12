@@ -42,8 +42,9 @@ public class Checkout {
     public String toString(){
         String s = "";
 
-        s += "          " + DessertShoppe.STORE_NAME + "\n";
-        s += "          " + "----------------------" + "\n";
+        //building the receipt
+        s += "          " + DessertShoppe.STORE_NAME + "\n"; //store name
+        s += "          " + "----------------------" + "\n"; //horizontal line
 
         for(int j = 0; j < numberOfItems; j++) {
             String l = myDessertItems[j].getName(); //name of items
