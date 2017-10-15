@@ -13,21 +13,21 @@ public class solutionForBonus {
         int i;
 
         while (k < r && l < c){
-            // Print the first row from the remaining rows
+            // add the first row from the remaining rows
             for (i = l; i < c; ++i)
             {
                 result.add(matrix[k][i]);
             }
             k++;
 
-            // Print the last column from the remaining columns
+            // add the last column from the remaining columns
             for (i = k; i < r; ++i)
             {
                 result.add(matrix[i][c-1]);
             }
             c--;
 
-            // Print the last row from the remaining rows */
+            // add the last row from the remaining rows */
             if ( k < r)
             {
                 for (i = c-1; i >= l; --i)

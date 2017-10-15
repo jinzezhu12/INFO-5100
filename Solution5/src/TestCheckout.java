@@ -30,7 +30,7 @@ public class TestCheckout {
         System.out.println("\nCost + Tax: " + (checkout.totalCost() + checkout.totalTax()) + "\n");
         System.out.println(checkout);
 
-        System.out.println("************* Solution for Spiral Order Matrix *************");
+        System.out.println("\n\n\n************* Solution for Spiral Order Matrix *************");
         //given integer matrix
         int[] [] matrix = {{1,2,3},
                 {4,5,6},
