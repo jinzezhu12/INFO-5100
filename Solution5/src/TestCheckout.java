@@ -29,5 +29,12 @@ public class TestCheckout {
         System.out.println("\nTotal tax: " + checkout.totalTax() + "\n");
         System.out.println("\nCost + Tax: " + (checkout.totalCost() + checkout.totalTax()) + "\n");
         System.out.println(checkout);
+
+        System.out.println("************* Solution for Spiral Order Matrix *************");
+        //given integer matrix
+        int[] [] matrix = {{1,2,3},
+                {4,5,6},
+                {7,8,9}};
+        System.out.println(solutionForBonus.spiralOrder(matrix));
     }
 }

@@ -1,8 +1,8 @@
 import sun.security.provider.Sun;
 
 public class Checkout {
-    private DessertItem[] myDessertItems;
-    private int numberOfItems;
+    private DessertItem[] myDessertItems; // dessert item array
+    private int numberOfItems; // quantity of items
     private final int RECEIPT_WIDTH = 36; // Define the width of the receipt
 
 
@@ -50,7 +50,16 @@ public class Checkout {
             String l = myDessertItems[j].getName(); //name of items
             String p = DessertShoppe.cents2dollarsAndCents(myDessertItems[j].getCost()); //cost of items
 
-            if (myDessertItems[j] instanceof IceCream) {
+            if (myDessertItems[j] instanceof Candy) { //align the price to the right
+                //print if Candy
+                s += ((Candy) myDessertItems[j]).getWeight() + " lbs @ " +
+                        DessertShoppe.cents2dollarsAndCents(((Candy)myDessertItems[j]).getUnitPrice()) + " /lb.\n";
+                while (l.length() < RECEIPT_WIDTH - p.length()) {
+                    l += " ";
+                }
+                s += l + p + "\n";
+            }
+            else if (myDessertItems[j] instanceof IceCream) {
                 //print if ice cream
                 while (l.length() < RECEIPT_WIDTH - p.length()) { //align the price to the right
                     l += " ";
@@ -66,15 +75,7 @@ public class Checkout {
                 }
                 s += l + p + "\n";
             }
-            else if (myDessertItems[j] instanceof Candy) { //align the price to the right
-                //print if Candy
-                s += ((Candy) myDessertItems[j]).getWeight() + " lbs @ " +
-                        DessertShoppe.cents2dollarsAndCents(((Candy)myDessertItems[j]).getUnitPrice()) + " /lb.\n";
-                while (l.length() < RECEIPT_WIDTH - p.length()) {
-                    l += " ";
-                }
-                s += l + p + "\n";
-            } else {
+            else {
                 // print if Cookie
                 s += ((Cookie)myDessertItems[j]).getQuantity() + " @ " +
                         DessertShoppe.cents2dollarsAndCents(((Cookie)myDessertItems[j]).getUnitPrice()) + " /dz\n";
@@ -96,7 +97,7 @@ public class Checkout {
             line = "\nTotal Cost";
             while(line.length() <= RECEIPT_WIDTH - totalCost.length())
                 line += " ";
-            s += line + totalCost;
+            s += line + totalCost; // align the total cost
 
             return s;
         }
