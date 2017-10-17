@@ -59,6 +59,7 @@ public class solution3 {
                     System.out.println("Please enter you second value");
                     input2 = reader.nextDouble();
                     result = input1 - input2;
+                    // Should be substract? Same typo as below
                     System.out.println(String.format("addition of these two value is %f", result));
                     break;
                 case 3:
@@ -117,6 +118,7 @@ public class solution3 {
         //if discriminant is greater than zero, two distinct roots will be retrieved
         if (d > 0) {
             System.out.println("Two roots for this equation:");
+            // What if a == 0 ?
             root1 = (-b + Math.sqrt(d))/(2*a);
             root2 = (-b - Math.sqrt(d))/(2*a);
             System.out.println(String.format("The first root -----> %.2f ||| The second root -----> %.2f", root1, root2));
@@ -273,6 +275,7 @@ public class solution3 {
         String sortedString1 = quickSort(string1);
         String sortedString2 = quickSort(string2);
 
+        
 
         //compare the sorted strings
         if (sortedString1.equals(sortedString2))
@@ -286,6 +289,7 @@ public class solution3 {
         Arrays.sort(chars); //sorting the letters
         String sortedString = new String(chars);
         //return the sorted String
+        // You may use Arrays.equals(arr1, arr2), so you don't have to parse chars to String
         return  sortedString;
     }
 
