@@ -11,10 +11,10 @@ public class testATM {
         Scanner reader = new Scanner(System.in);
         //put some sample users into the system
         User user1 = new User("Zezhu", 25, "1031 fairfax drive, Tuscaloosa AL 35406", "2058868735", "77853316", "123456" );
-        User user2 =  new User("Daugh", 19, "8458 spotted fawn drive, Memphis TN 38133", "9013344231", "88234772", "123456" );
+        User user2 =  new User("Daugh", 19, "8458 spotted fawn drive, Memphis TN 38133", "9013344231", "12341234", "123456" );
         User user3 =  new User("Jennie", 23, "3600 45th ave SW, Seattle WA 98126", "2067763212", "99823112", "123456" );
         //initialize the atm
-        Atm myAtm = new Atm(1000, 2);
+        Atm myAtm = new Atm(1000, 1);
         //add sample users to the ATM system
         myAtm.addUser(user1);
         myAtm.addUser(user2);
@@ -34,7 +34,7 @@ public class testATM {
                     break;
                 case 2:
                     //actions for new users
-
+                    myAtm.registerNewAccountMenu();
                     break;
                 default:
                     System.out.println("Please enter a valid option (0 - 2)......");
@@ -58,7 +58,7 @@ public class testATM {
                     break;
                 case 2:
                     //take users to retrieve back their password
-
+                    myAtm.forgotpwdPrompt();
                     break;
                 default:
                     System.out.println("Please enter a valid option (0 - 2)......");
@@ -75,7 +75,7 @@ public class testATM {
         System.out.println("*************          Welcome Back            ******************");
         System.out.println("                1. Log-in to your account                        ");
         System.out.println("                2. Forgot your password?                         ");
-        System.out.println("                0. Main Menu                                     ");
+        System.out.println("                0. Back to Previous Menu                         ");
         System.out.println("*****************************************************************");
     }
 
@@ -84,7 +84,7 @@ public class testATM {
         System.out.println("****************** Welcome to Lucky ATM System ******************");
         System.out.println("                1. Current Users                                 ");
         System.out.println("                2. New Users                                     ");
-        System.out.println("                0. Exit This Program                             ");
+        System.out.println("                0. Back to Previous Menu                         ");
         System.out.println("*****************************************************************");
     }
 
