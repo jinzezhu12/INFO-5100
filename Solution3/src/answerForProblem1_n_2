@@ -20,6 +20,7 @@ Those bullet points below are the errors within the code:
         }
     * instead of write the code "time = t;" in setTime(), we should do:
         void setTime(String t){
+            // It's not mandatory to add this, if variable name is different from param name as in the case t/time
             this.time = t;
         }
      *  * For the security in most cases, variable 'time' need to be switched to private so it only can be accessed from inside the same class
