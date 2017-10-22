@@ -50,7 +50,12 @@ public class solution6 {
                     break;
                 case 3:
                     // ATM Console System
-                    testATM.launchATM();
+
+                    try{
+                        testATM.launchATM();
+                    } catch (IOException e){
+                        System.out.println("Data file issue exist, need to be fixed soon......");
+                    }
 
 
                 default:

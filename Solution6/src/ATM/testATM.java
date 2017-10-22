@@ -1,14 +1,43 @@
 package ATM;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.lang.invoke.SwitchPoint;
 import java.util.Scanner;
 
 public class testATM {
+    private static String userData = "./user.txt";
+    private static String transactionData = "./transaction.txt";
 
-    public static void launchATM(){
+
+    public static void launchATM() throws IOException{
 
         //initialize the input reader
         Scanner reader = new Scanner(System.in);
+
+        //initialize the file & file writer
+        System.out.println("Lucky ATM is loading the data files.........");
+        File userFile = new File(userData);
+            if (userFile.createNewFile()) {
+                System.out.println("New user data file is created!");
+                FileWriter userWriter = new FileWriter(userFile);
+                userWriter.write("name, age, address, phoneNum, bankAccountNum, password");
+                userWriter.close();
+            }
+            else
+                System.out.println("user data file already exists!");
+        File transactionFile = new File(transactionData);
+            if (transactionFile.createNewFile()) {
+                System.out.println("New transaction data file is created!");
+                FileWriter transactionWrtiter = new FileWriter(transactionFile); //initialize the file writer
+                transactionWrtiter.write("transtype, amount, bankAccountNum");
+                transactionWrtiter.close();
+            }
+            else
+                System.out.println("transaction data file already exists!");
+
+
         //put some sample users into the system
         User user1 = new User("Zezhu", 25, "1031 fairfax drive, Tuscaloosa AL 35406", "2058868735", "77853316", "123456" );
         User user2 =  new User("Daugh", 19, "8458 spotted fawn drive, Memphis TN 38133", "9013344231", "12341234", "123456" );
@@ -41,7 +70,11 @@ public class testATM {
             }
         }
 
+
+
     }
+
+
 
     private static void currentUserMenu(Atm myAtm) {
         Scanner reader = new Scanner(System.in);

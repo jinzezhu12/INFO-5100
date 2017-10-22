@@ -1,5 +1,7 @@
 package ATM;
 
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class User {
@@ -42,8 +44,24 @@ public class User {
             Transaction transaction = new Transaction("Deposit", amount);
             this.transactions.add(transaction);
         }
+        //write transaction to the file
+        writeTransactionData(amount, isWithdrawal);
         //update the accountBalance
         return this.accountBalance;
+    }
+
+    private void writeTransactionData (double amount, boolean isWithdrawal) {
+        try{
+            FileWriter transactionWriter = new FileWriter("./transaction.txt", true);
+            if(isWithdrawal)
+                transactionWriter.append(String.format("\ndeposit, %.2f, %s", amount, this.getBankAccountNumber()));
+            else
+                transactionWriter.append(String.format("\nwithDrawal, %.2f, %s", amount, this.getBankAccountNumber()));
+            transactionWriter.close();
+        } catch (IOException e){
+            e.printStackTrace();
+        }
+
     }
 
     public String getBankAccountNumber() {
@@ -74,5 +92,13 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public String getPassword() {
+        return password;
     }
 }

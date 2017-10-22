@@ -1,0 +1,7 @@
+name, age, address, phoneNum, bankAccountNum, password
+Zezhu, 25, 1031 fairfax drive, Tuscaloosa AL 35406, 2058868735, 77853316, 123456
+Daugh, 19, 8458 spotted fawn drive, Memphis TN 38133, 9013344231, 12341234, 123456
+Jennie, 23, 3600 45th ave SW, Seattle WA 98126, 2067763212, 99823112, 123456
+Zezhu, 25, 1031 fairfax drive, Tuscaloosa AL 35406, 2058868735, 77853316, 123456
+Daugh, 19, 8458 spotted fawn drive, Memphis TN 38133, 9013344231, 12341234, 123456
+Jennie, 23, 3600 45th ave SW, Seattle WA 98126, 2067763212, 99823112, 123456

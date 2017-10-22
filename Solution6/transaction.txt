@@ -1,0 +1,6 @@
+transtype, amount, bankAccountNum
+deposit, 100.00, 77853316
+deposit, 100.00, 77853316
+withDrawal, 1000.00, 77853316
+withDrawal, 5000.00, 77853316
+deposit, 2000.00, 77853316

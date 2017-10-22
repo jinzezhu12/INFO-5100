@@ -1,5 +1,7 @@
 package ATM;
 
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -14,7 +16,7 @@ public class Atm {
         this.users = new ArrayList<User>();
     }
 
-    public boolean addUser(User newUser){
+    public boolean addUser(User newUser) throws IOException{
         for (User u : this.users)
         {
             if(u.getBankAccountNumber().equals(newUser.getBankAccountNumber())) {
@@ -23,6 +25,8 @@ public class Atm {
             }
         }
         this.users.add(newUser);
+        //write user data to file
+        writeUserData(newUser);
         return true;
     }
 
@@ -207,7 +211,7 @@ public class Atm {
         return null;
     }
 
-    public void registerNewAccountMenu() {
+    public void registerNewAccountMenu() throws IOException{
         //inits
         Scanner reader = new Scanner(System.in);
         String name, phoneNum, address, bankAccountNumber, password;
@@ -234,5 +238,10 @@ public class Atm {
                 isRegistered = true;
         } while (!isRegistered);
 
+    }
+    private static void writeUserData(User user1) throws IOException {
+        FileWriter userWriter = new FileWriter("./user.txt", true);
+        userWriter.append(String.format("\n%s, %d, %s, %s, %s, %s", user1.getName(), user1.getAge(), user1.getAddress(), user1.getPhoneNum(), user1.getBankAccountNumber(), user1.getPassword()));
+        userWriter.close();
     }
 }
