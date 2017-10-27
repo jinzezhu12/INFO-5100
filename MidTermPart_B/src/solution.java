@@ -38,6 +38,7 @@ public class solution {
                 case 4:
                     Question_4.test();
                     break;
+
                 default:
                     System.out.println("Please enter a valid option ( 0 - 3 )..........");
             }
@@ -51,7 +52,7 @@ public class solution {
         System.out.println("        2. Arrange Coins                                 ");
         System.out.println("        3. Minimum Moves                                 ");
         System.out.println("        4. Count of Possible Ways                        ");
-        System.out.println("        5. Minimum Moves                                 ");
+        System.out.println("        5. Find                                ");
         System.out.println("*********************************************************");
         System.out.println("        Press 0 to exit the menu.........................");
     }

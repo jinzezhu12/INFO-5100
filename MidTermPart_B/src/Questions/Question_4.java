@@ -5,7 +5,7 @@ public class Question_4 {
     public static void test(){
         int n = 2; //number of dices
         int m = 6; //number of faces in a dice
-        int x = 3; //destination sum
+        int x = 7; //destination sum
         int count; //count of possible ways
         count = countNumberOfPossibleWays(n, m, x);
         System.out.println(count);
@@ -26,7 +26,5 @@ public class Question_4 {
         }
         return ways[m][x];
     }
-
 }
-
 
