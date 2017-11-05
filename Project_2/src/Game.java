@@ -22,7 +22,7 @@ public class Game {
             players[i] = new Hand(i, plays);
         }
         tricks = new Trick[plays];
-    } // end constructor
+    } // end constructor of Game
 
     //**********************************************************
 
@@ -149,7 +149,7 @@ public class Game {
         {
             queenOfSpades = true;
         }
-    } // end updateHeartsQueen
+    }
 
     //**********************************************************
 
@@ -179,5 +179,5 @@ public class Game {
             } // end if winner
         } // end for tricks
         return points;
-    } // end of computing Points
+    }
 }

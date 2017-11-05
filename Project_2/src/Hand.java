@@ -16,15 +16,15 @@ public class Hand extends GroupOfCards{
     }
 
     public void setShortest(){
-        int count0, count1, count3; // club,diamond,spade lengths
+        int num_clubs, num_diamonds, num_spades; // club,diamond,spade lengths
 
-        if ((count1 = count(1)) <= (count0 = count(0)))
+        if ((num_diamonds = count(1)) <= (num_clubs = count(0)))
         {
             shortest = 1;
         }
 
         // see if spades are shorter and safe
-        if ((count3 = count(3)) <= (count(shortest)) &&
+        if ((num_spades = count(3)) <= (count(shortest)) &&
                 find(12, 3) < 0 && find(13, 3) < 0 && find (14, 3) < 0)
         {
             shortest = 3;
@@ -48,7 +48,7 @@ public class Hand extends GroupOfCards{
             suit = winningCard.getSuit();
         }
 
-        // first hand
+        // start with first hand
         if (trick.getCurrentSize() == 0)
         {
             if (shortest >= 0)  // have not yet created a void
@@ -67,7 +67,7 @@ public class Hand extends GroupOfCards{
                     System.out.println("Rule Error: forced heart lead");
                     index = findLowest(2);
                 }
-            } // end if shortest
+            } // end if it is the shortest
         }
 
         // last hand with no bad cards in trick
@@ -79,7 +79,7 @@ public class Hand extends GroupOfCards{
         else if ((index = findHighestBelow(winningCard)) >= 0);
         else if ((index = findMiddleHigh(game, suit)) >= 0);
 
-            // void in suit led, so discard an undesirable card
+
         else if ((index = find(12, 3)) >= 0); // queen of Spades
         else if ((index = find(14, 3)) >= 0); // Ace of Spaces
         else if ((index = find(13, 3)) >= 0); // King of Spades
@@ -93,11 +93,11 @@ public class Hand extends GroupOfCards{
         trick.update(this.NUM, card);
         game.updateHeartsAndQueen(card);
         return card;
-    } // end playACard
+    }
 
     //**********************************************************
 
-    public int findLowest(int suit)        // in specified suit
+    public int findLowest(int suit)        // find lowest value in hand
     {
         for (int i=getCurrentSize()-1; i>=0; i--)
         {
@@ -107,7 +107,7 @@ public class Hand extends GroupOfCards{
             }
         }
         return -1;
-    } // end findLowest
+    }
 
     //**********************************************************
 
@@ -123,7 +123,7 @@ public class Hand extends GroupOfCards{
             }
         }
         return count;
-    } // end count
+    }
 
     //**********************************************************
 
@@ -142,7 +142,7 @@ public class Hand extends GroupOfCards{
             }
         }
         return -1;
-    } // end find
+    }
 
     //**********************************************************
 
@@ -159,7 +159,7 @@ public class Hand extends GroupOfCards{
             }
         }
         return -1;
-    } // end findHighest
+    }
 
     //**********************************************************
 
@@ -208,7 +208,7 @@ public class Hand extends GroupOfCards{
             return (index + 1);  // play spade below queen of spaces
         }
         return index;
-    } // end findLastHigh
+    }
 
     //**********************************************************
 
@@ -239,7 +239,7 @@ public class Hand extends GroupOfCards{
             } // end for
         } // end if index
         return index;
-    } // end findHighestBelow
+    }
 
     //**********************************************************
 
@@ -269,7 +269,7 @@ public class Hand extends GroupOfCards{
             } // end for
         } // end if
         return index;
-    } // end findMiddleHigh
+    }
 
     //**********************************************************
 
