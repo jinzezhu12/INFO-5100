@@ -56,4 +56,4 @@ public class solution {
         System.out.println("*********************************************************");
         System.out.println("        Press 0 to exit the menu.........................");
     }
-}
+}  
