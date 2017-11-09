@@ -125,4 +125,4 @@ public abstract class hangManGame {
     private static String[] Hangman() {
         return new String[] {"youtube", "facebook", "instagram", "twitter", "google"};
     }
-}
+} 
