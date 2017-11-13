@@ -41,6 +41,7 @@ public class Solution7 {
                 case 4:
                     //print pascal triangle
                     printPascalTriangle.main();
+                    break;
                 default:
                     System.out.println("Please enter a valid option ( 0 - 3 )..........");
             }
