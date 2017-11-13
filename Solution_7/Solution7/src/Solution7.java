@@ -35,8 +35,12 @@ public class Solution7 {
                     ReverseHello.main();
                     break;
                 case 3:
+                    //heat and pressure monitoring activities
                     Root.main();
                     break;
+                case 4:
+                    //print pascal triangle
+
                 default:
                     System.out.println("Please enter a valid option ( 0 - 3 )..........");
             }

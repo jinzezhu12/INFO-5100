@@ -1,6 +1,5 @@
 package Question3;
 
-import java.awt.*;
 
 public class Controller extends Thread {
 
@@ -16,21 +15,30 @@ public class Controller extends Thread {
     }
 
 
+    @Override
     public void run(){
         device.startup();
 
-        synchronized (device){
-            while(heat.getValue() <= 70 && pressure.getValue() <= 100){
-                System.out.println(String.format("heat -> %.2f, pressure -> %.2f", heat.getValue(), pressure.getValue()));
+        double d_heat, d_pressure;
+
+        while(true){
+            synchronized (device){
+                try {
+                    device.wait();
+                } catch (InterruptedException e){
+                    e.printStackTrace();
+                }d_heat = heat.getValue();
+                d_pressure = pressure.getValue();
+                System.out.println(String.format("Heat -> %.2f, Pressure -> %.2f", d_heat, d_pressure));
+
             }
-            try{
-                device.wait();
-            } catch (InterruptedException e){
-                System.out.println("Something went wrong while the device is waiting......");
+
+            if (d_pressure > 100 || d_heat > 70){
+                device.shutdown();
+                heat.interrupt();
+                pressure.interrupt();
+                return;
             }
         }
-        heat.stop();
-        pressure.stop();
-        device.shutdown();
     }
 }

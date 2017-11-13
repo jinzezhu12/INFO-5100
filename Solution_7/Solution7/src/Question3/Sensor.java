@@ -1,7 +1,5 @@
 package Question3;
 
-import java.util.Random;
-
 public class Sensor extends Thread {
     private final Device device;
     private double value;
@@ -15,17 +13,21 @@ public class Sensor extends Thread {
     }
 
     public void updateValue(){
+
         this.value += 0.001;
     }
 
+    @Override
     public void run(){
+
         while(true){
         synchronized (device){
             double prevValue = value;
             updateValue();
             if(value != prevValue)
-                device.notifyAll();
+                device.notify();
             }
         }
-    }
+     } //end of overridden run()
+
 }
