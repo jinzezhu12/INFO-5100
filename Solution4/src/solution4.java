@@ -181,6 +181,4 @@ public class solution4 {
         System.out.println("*********************************************************");
         System.out.println("        Press 0 to exit the menu.........................");
     }
-
-
 }
