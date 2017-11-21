@@ -24,7 +24,6 @@ public class solution8 {
                     break;
                 case 1:
                     //FileAnalyzer
-
                     try{
                         FileAnalyzer.main();
                     } catch (IOException e){
@@ -32,14 +31,17 @@ public class solution8 {
                     }
                     break;
                 case 2:
-
+                    //Lyric Analyzer
+                    try {
+                        LyricAnalyzer.main();
+                    } catch (IOException e) {
+                        System.out.println("File Errors Encountered......");
+                    }
                     break;
                 case 3:
 
                     break;
-                case 4:
 
-                    break;
                 default:
                     System.out.println("Please enter a valid option ( 0 - 3 )..........");
             }
@@ -52,9 +54,7 @@ public class solution8 {
         System.out.println("*********************************************************");
         System.out.println("        1. File Analyzer                                 ");
         System.out.println("        2. Lyric Analyzer                                ");
-        System.out.println("        3. Set up a controller for a device              ");
-        System.out.println("        4. Pascal’s triangle                             ");
-        System.out.println("        5. Find Partition                                ");
+        System.out.println("        3. MyJson For Vehicles                           ");
         System.out.println("*********************************************************");
         System.out.println("        Press 0 to exit the menu.........................");
     }

@@ -1,147 +1,113 @@
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
-import java.util.Collections;
+import java.util.Arrays;
 import java.util.HashMap;
-import java.util.LinkedHashSet;
-import java.util.List;
-import java.util.Set;
+
 
 public class LyricAnalyzer {
-    //data storage declaration
-    private HashMap<String , ArrayList<Integer>> map;
+    private HashMap<String, ArrayList<Integer>> map;
 
-
-    public LyricAnalyzer(){
-        super();
-        this.map = new HashMap<String, ArrayList<Integer>>();
+    public LyricAnalyzer() {
+        this.map = new HashMap<>();
     }
 
     public static void main() throws IOException{
         LyricAnalyzer la = new LyricAnalyzer();
-        String fPath = "./src/Question2_test1.txt"; // retrieve the input file
-        File testFile = new File(fPath);
-
-        la.read(testFile); // reading testFile
-        la.displayWords(); // use LyricAnalyzer to print results
-
-        //print out the lyric stats
-        System.out.println(String.format("The count of Unique Words: %d", la.uniqueCount()));
-        System.out.println(String.format("Most Frequent Word: %s"+la.mostFreqWord()));
-
-        //switch the file path to the output file
-        fPath = "./src/Question2_output.txt";
-        testFile = new File(fPath);
-        testFile.createNewFile();
-        la.writeLyrics(testFile);
+        la.read(new File("./src/Question2_test2.txt"));
+        System.out.println("unique words: " + la.count());
+        System.out.println("most frequently word: " + la.mostFrequentWord());
+        System.out.println();
+        la.displayWords();
+        File newfile = new File("./outputFiles/lyrics.txt");
+        la.writeLyrics(newfile);
     }
 
-    private void read(File testFile) throws IOException {
-        FileInputStream fis = new FileInputStream(testFile);
-        int count = 1; //initialize the counter
-        StringBuilder lyricWord = new StringBuilder();
-        while(true){
-            int tmp = fis.read();
-            if(tmp == -1){
-                add(lyricWord.toString(), -count);
+    public void read(File file) throws FileNotFoundException, IOException {
+        FileReader fr = new FileReader(file);
+        BufferedReader br = new BufferedReader(fr);
+        int pos = 1; //initialize the word position
+        String line;
+        while (true) {
+            line = br.readLine();
+            if (line == null) {
+                break;
             }
-            if(tmp == 32){
-                add(lyricWord.toString(), count);
-                count++;
-                lyricWord.delete(0, lyricWord.length());
+            String[] words = line.toUpperCase().split(" ");
+            for (int i = 0; i < words.length; ++i) {
+                if (i == words.length - 1) {
+                    add(words[i], -pos);
+                } else add(words[i], pos);
+                pos++;
             }
-            else if (tmp == 10 || tmp == 13) {
-                fis.read();
-                add(lyricWord.toString(), -count);
-                count++;
-                lyricWord.delete(0, lyricWord.length());
-            }
-            else {
-                lyricWord.append((char) tmp);
-            }
-            fis.close();
         }
+        br.close();
+        fr.close();
+
     }
 
-    //Writing lyrics
-    private void writeLyrics(File file) throws IOException{
-        int total = 0; //initialize the total lyrics
-        List<String> words = new ArrayList<String>(map.keySet());
-        for (String word : words)
-            total += map.get(word).size();
-        String[] lyric = new String[total + 1];
-        Set<String> wordSet = map.keySet();
-        for (String word : wordSet) {
-            ArrayList<Integer> currentWordPosition = map.get(word);
-            for (int i = 0; i < currentWordPosition.size(); i++)
-                if (currentWordPosition.get(i) > 0)
-                    lyric[currentWordPosition.get(i)] = word + " ";
-                else
-                    lyric[-currentWordPosition.get(i)] = word + "\n";
-        }
-
-        FileOutputStream fos = new FileOutputStream(file, true);
-        for (int i = 1; i < lyric.length; i++) {
-            byte[] b = lyric[i].getBytes();
-            fos.write(b);
-        }
-        fos.close();
-    }
-
-    //display sorted words to the console
-    public void displayWords() {
-        System.out.println("Word          Word Position(s)");
-        System.out.println("==============================");
-        List<String> words = new ArrayList<String>(map.keySet());
-        Collections.sort(words);
+    private void displayWords() {
+        String[] words = new String[map.size()];
+        map.keySet().toArray(words);
+        Arrays.sort(words);
         for (String word : words) {
-            System.out.print(word);
-            int spaceLength = 14 - word.length();
-            for (int i = 0; i < spaceLength; i++)
-                System.out.print(" ");
-            System.out.println(map.get(word).toString());
+            StringBuilder sb = new StringBuilder();
+            sb.append(word).append(": ");
+            //enclosed in square brackets ("[]")
+            String list = map.get(word).toString();
+            sb.append(list.substring(1, list.length() - 1));
+            System.out.println(sb.toString());
         }
     }
-    //add word to specific location
-    private void add(String word, int wordPosition){
-        if (map.containsKey(word)) {
-            map.get(word).add(wordPosition);
-        }
-        else {
-            map.put(word, new ArrayList<Integer>());
+
+
+    private void add(String word, int wordPosition) {
+        if (!map.containsKey(word)) {
+            ArrayList<Integer> pos=new ArrayList<>();
+            pos.add(wordPosition);
+            map.put(word, pos);
+        } else {
             map.get(word).add(wordPosition);
         }
     }
 
-    //get the word which is used most frequently
-    private String mostFreqWord(){
-        Set<String> words = map.keySet();
-        int max = 0;
-        String index = new String();
-        for (String word : words) {
-            if (map.get(word).size() > max) {
-                max = map.get(word).size();
-                index = word;
+
+    private int count() {
+        return map.size();
+    }
+
+    private String mostFrequentWord() {
+        int count = 0;
+        String str = "";
+        for (String s : map.keySet()) {
+            if (map.get(s).size() > count) {
+                count = map.get(s).size();
+                str = s;
             }
         }
-        return index;
+        return str;
     }
 
-    //Count the unique words
-    private int uniqueCount(){
-        int total = 0;
-        List<String> words = new ArrayList<String>(map.keySet());
-        for (String word : words)
-            total += map.get(word).size();
-        System.out.println("Total words count: " + total);
-        for (int i = 0; i < words.size(); i++)
-            words.set(i, words.get(i).toUpperCase());
-        LinkedHashSet<String> set = new LinkedHashSet<String>(words);
-        words = new ArrayList<String>(set);
-        return words.size();
+    private void writeLyrics(File file) throws IOException {
+        int n = 0;
+        for (ArrayList<Integer> a : map.values()) {
+            n += a.size();
+        }
+        String[] words = new String[n + 1];
+        Arrays.fill(words, "");
+        for (String s : map.keySet()) {
+            for (Integer i : map.get(s)) {
+                if (i < 0) {
+                    words[-i] = s.toUpperCase() + " " + "\n";
+                } else words[i] = s.toUpperCase() + " ";
+            }
+        }
+        FileWriter fw = new FileWriter(file);
+        PrintWriter pw = new PrintWriter(fw);
+        for (int i = 1; i < words.length; ++i) {
+            pw.print(words[i]);
+        }
+
+        fw.close(); //close the file writer stream
+        pw.close(); //close the print writer stream
     }
-
-
 }
