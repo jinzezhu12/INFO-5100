@@ -39,7 +39,12 @@ public class solution8 {
                     }
                     break;
                 case 3:
-
+                    //transfer into JSON data
+                    try {
+                        MyJson.main();
+                    } catch (IOException e) {
+                        System.out.println("File Errors Encountered......");
+                    }
                     break;
 
                 default:
